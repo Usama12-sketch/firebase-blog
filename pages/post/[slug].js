@@ -1,6 +1,7 @@
 import { getFormattedDate } from '@lib/utils';
 import { getPostBySlug } from '@lib/firebase';
 import { Layout } from '@components';
+import Link from 'next/link';
 
 
 
@@ -8,10 +9,12 @@ const PostPage = ({ post }) => (
     <Layout>
 
       <div>
+        <Link href={`/edit/${post.slug}`}>Edit</Link>
         <img src={post.coverImage} alt={post.coverImageAlt} />
         <h1>{post.title}</h1>
         <span>Published {getFormattedDate(post.dateCreated)}</span>
         <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
+    
       </div>
     </Layout>
     

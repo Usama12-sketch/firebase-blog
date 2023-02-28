@@ -1,10 +1,10 @@
 import { signOut } from '@lib/firebase';
-import { useAuth } from '@contexts/auth';
 import Link from 'next/link';
+import { useAuth } from '@contexts/auth';
 
 const Layout = ({ children }) => {
   const [user] = useAuth();
-
+  
   return (
     <div>
       <nav className=' bg-green-300 flex justify-evenly'>
