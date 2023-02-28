@@ -23,6 +23,12 @@ const Layout = ({ children }) => {
 
           </span>
         )}
+        {user && (
+          <span>
+            <Link href="/create">Create post</Link>
+
+          </span>
+        )}
       </nav>
       <main>{children}</main>
     </div>
