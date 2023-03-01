@@ -46,8 +46,8 @@ const SignInPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='signin  '>
+      <form className='form' onSubmit={handleSubmit}>
         <h1>Please Sign In</h1>
         <label htmlFor="email">Email</label>
         <input

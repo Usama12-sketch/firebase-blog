@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'; // this is new
 import { createPost } from '@lib/firebase'; // this is 
 import { useAuth } from '@contexts/auth';
+import Link from 'next/link';
 
 const CreatePage = () => {
   const router = useRouter(); // this is new
@@ -81,8 +82,8 @@ const CreatePage = () => {
   };
 
   return (
-    <div >
-      <form onSubmit={handleSubmit}>
+    <div className=' flex bg-gradient-to-tr from-green-300 w-screen  h-screen' >
+      <form className='w-full flex  flex-col bg-green-300 p-2 rounded-xl font-serif  mt-10 gap-5' onSubmit={handleSubmit}>
         <h1>Create a new post</h1>
         <div>
           <label htmlFor="title">Title</label>
@@ -102,7 +103,7 @@ const CreatePage = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='flex flex-col'>
           <label htmlFor="coverImage">Cover Image URL</label>
           <input
             id="coverImage"
@@ -111,7 +112,7 @@ const CreatePage = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='flex flex-col'>
           <label htmlFor="coverImageAlt">Cover Image Alt</label>
           <input
             id="coverImageAlt"
@@ -120,17 +121,21 @@ const CreatePage = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='flex flex-col'>
           <label htmlFor="content">Content</label>
-          <textarea
+          <textarea className='h-60'
             id="content"
             value={formValues.content}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" disabled={isLoading}>
+        <div className="flex justify-center">
+
+        <button className=" text-white w-fit rounded-sm px-1 bg-red-600" type="submit" disabled={isLoading}>
           {isLoading ? 'Creating...' : 'Create'}
         </button>
+        </div>
+        <Link className=" text-white w-fit rounded-sm px-1 bg-black" href="/">cancel</Link>
       </form>
     </div>
   );

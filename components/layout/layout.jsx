@@ -13,7 +13,11 @@ const Layout = ({ children }) => {
         </span>
         {user && (
           <span>
-            <button onClick={() => signOut()}>Sign Out</button>
+            <button onClick={() => signOut()}>
+              <Link href="/">
+              Sign Out
+              </Link>
+              </button>
 
           </span>
         )}

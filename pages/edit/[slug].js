@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { getPostBySlug, updatePost } from '@lib/firebase';
 import { useAuth } from '@contexts/auth';
 import { Layout } from '@components';
+import Link from 'next/dist/client/link';
 
 
 const EditPage = ({ post }) => {
@@ -56,10 +57,10 @@ const EditPage = ({ post }) => {
 
   return (
     <Layout>
-      <div className=' bg-pink-300  flex flex-col justify-center h-screen items-center' >
-        <form onSubmit={handleSubmit} className=" flex  flex-col bg-green-400 mt-10 gap-5">
+      <div className=' bg-gray-400  flex flex-col justify-center h-screen items-center' >
+        <form onSubmit={handleSubmit} className=" w-full flex  flex-col bg-green-300 p-2 rounded-xl font-serif text-red-400 mt-10 gap-5">
           <h1>Edit Post: {post.slug}</h1>
-          <div className=' justify-between flex'>
+          <div className='flex flex-col'>
             <label htmlFor="title">Title</label>
             <input
               id="title"
@@ -68,8 +69,8 @@ const EditPage = ({ post }) => {
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label htmlFor="coverImage">Cover Image URL</label>
+          <div className=' flex flex-col'>
+            <h1 htmlFor="coverImage">Cover Image URL</h1>
             <input
               id="coverImage"
               type="text"
@@ -77,7 +78,8 @@ const EditPage = ({ post }) => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className=' flex flex-col
+          '>
             <label htmlFor="coverImageAlt">Cover Image Alt</label>
             <input
               id="coverImageAlt"
@@ -86,17 +88,21 @@ const EditPage = ({ post }) => {
               onChange={handleChange}
             />
           </div>
-          <div className=' flex justify-between'>
-            <label htmlFor="content">Content</label>
-            <textarea
+          <div className='flex flex-col'>
+            <h1 htmlFor="content">Content</h1>
+            <textarea className=' h-60'
               id="content"
               value={values.content}
               onChange={handleChange}
             />
           </div>
-          <button type="submit" disabled={isLoading}>
+          <div className='flex justify-center'>
+          <button className=' text-white rounded-sm px-1 bg-black align justify-self-center' type="submit" disabled={isLoading}>
             {isLoading ? 'Updating...' : 'Update'}
           </button>
+
+          </div>
+          <Link className=" text-white w-fit rounded-sm px-1 bg-black" href="/">cancel</Link>
         </form>
       </div>
     </Layout>

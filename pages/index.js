@@ -41,31 +41,33 @@ export async function getServerSideProps() {
     const [user] = useAuth();
 
    return (
-      <div >
-<Layout/>    
-      <h1>Blog Posts</h1>
+      <div className=' bg-slate-500'>
+{/* <Layout/>     */}
+      <h1 className=' mt-3 hover:text-purple-300   to-pink-500 from-purple-400 bg-gradient-to-br text-2xl text-purple-500 font-serif font-bold text-center p-20 transition-all duration-500'>Blog Posts</h1>
       {posts.map((post) => (
-        <article key={post.slug}>
+        <article key={post.slug} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-purple-400  transition-all duration-500 hover:bg-purple-500 text-white">
           <img src={post.coverImage} alt={post.coverImageAlt} />
-          <div>
-            <h2>{post.title}</h2>
+          <div className='transition-all duration-500 font-serif'>
+            <h2 className='text-black text-xl  shadow-lg'>{post.title}</h2>
             <span>{getFormattedDate(post.dateCreated)}</span>
             <p
               dangerouslySetInnerHTML={{
                 __html: `${post.content.substring(0, 200)}...`,
               }}
               ></p>
+
+            <div className=' flex justify-between '>
              {user && (
                <span>
-        
-            <a className=' bg-green-400'>
+            <a className=' text-gray-800 p-1 shadow-black shadow-md hover:shadow-xl bg-green-400 rounded-sm transition-all duration-500'>
              <Link href={`/edit/${post.slug}`}>Edit</Link>
             </a>
-
           </span>
         )}
-
-<Link href={`/post/${post.slug}`}>Continue Reading</Link>
+ <a className=' bg-slate-400 hover:shadow-md shadow-black text-black transition-all duration-300 underline rounded-lg hover:bg-white shadow-xl'>
+  <Link href={`/post/${post.slug}`}>Continue Reading</Link>
+ </a>
+        </div>
 
           </div>
         </article>
