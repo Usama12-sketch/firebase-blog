@@ -8,7 +8,8 @@ import Link from 'next/link';
 const PostPage = ({ post }) => (<>
   {/* <Layout> </Layout> */}
 
-      <div className=" p-4 hover:shadow-lg shadow-2xl  m-4 transition-all duration-500  bg-purple-400 hover:bg-purple-800 text-white h-screen ">
+      <div className=" p-4 hover:shadow-lg shadow-2xl  transition-all duration-500  bg-purple-400 hover:bg-purple-800 text-white h-screen ">
+        <div className=' opacity-0 h-8'>546</div>
       <a className=' m-3 text-gray-800 p-1 shadow-black shadow-md hover:shadow-xl bg-green-400 rounded-sm transition-all duration-500'>
              <Link href={`/edit/${post.slug}`}>Edit</Link>
             </a>

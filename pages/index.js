@@ -41,9 +41,9 @@ export async function getServerSideProps() {
     const [user] = useAuth();
 
    return (
-      <div className=' bg-slate-500'>
+      <div className=' w-full bg-slate-500'>
 {/* <Layout/>     */}
-      <h1 className=' mt-3 hover:text-purple-300   to-pink-500 from-purple-400 bg-gradient-to-br text-2xl text-purple-500 font-serif font-bold text-center p-20 transition-all duration-500'>Blog Posts</h1>
+      <h1 className=' hover:text-purple-300   to-pink-500 from-purple-400 bg-gradient-to-br text-2xl text-purple-500 font-serif font-bold text-center p-20 transition-all duration-500'>Blog Posts</h1>
       {posts.map((post) => (
         <article key={post.slug} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-purple-400  transition-all duration-500 hover:bg-purple-500 text-white">
           <img src={post.coverImage} alt={post.coverImageAlt} />
