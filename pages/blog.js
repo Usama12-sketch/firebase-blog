@@ -9,7 +9,6 @@ import { useAuth } from '@contexts/auth';
 
 import { getPosts } from '@lib/firebase';
 import { Layout } from '@components';
-import Image from 'next/image';
 
 const getFormattedDate = (milliseconds) => {
   const formatOptions = {
@@ -38,33 +37,41 @@ export async function getServerSideProps() {
     };
   }
   
-  export default function HomePage  ({ posts }) {
+  export default function Blog  ({ posts }) {
     const [user] = useAuth();
 
    return (
-      <div className=' w-full  bg-slate-500'>
+      <div className=' w-full bg-slate-500'>
 {/* <Layout/>     */}
       <h1 className=' hover:text-purple-300   to-pink-500 from-purple-400 bg-gradient-to-br text-2xl text-purple-500 font-serif font-bold text-center p-20 transition-all duration-500'>Blog Posts</h1>
-      <div className='flex overflow-scroll'>
-
       {posts.map((post) => (
         <article key={post.slug} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-purple-400  transition-all duration-500 hover:bg-purple-500 text-white">
-          <Image layout="responsive" width={400} height={300} src={post.coverImage} alt={post.coverImageAlt} />
+          <img src={post.coverImage} alt={post.coverImageAlt} />
           <div className='transition-all duration-500 font-serif'>
             <h2 className='text-black text-xl  shadow-lg'>{post.title}</h2>
-            <span>{getFormattedDate(post.dateCreated)}</span> 
+            <span>{getFormattedDate(post.dateCreated)}</span>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: `${post.content.substring(0, 200)}...`,
+              }}
+              ></p>
 
             <div className=' flex justify-between '>
-            
+             {user && (
+               <span>
+            <a className=' text-gray-800 p-1 shadow-black shadow-md hover:shadow-xl bg-green-400 rounded-sm transition-all duration-500'>
+             <Link href={`/edit/${post.slug}`}>Edit</Link>
+            </a>
+          </span>
+        )}
  <a className=' bg-slate-400 hover:shadow-md shadow-black text-black transition-all duration-300 underline rounded-lg hover:bg-white shadow-xl'>
-  <Link href={`/post/${post.slug}`}>{post.title}</Link>
+  <Link href={`/post/${post.slug}`}>Continue Reading</Link>
  </a>
         </div>
 
           </div>
         </article>
       ))}
-      </div>
     </div>
   );
   
