@@ -58,6 +58,18 @@ export default function Nav(props) {
            duration-700 ease-in-out
           text-sm md:text-xl 
              lg:text-xl'>
+    <Link onClick={navbarflex} href="/usama">usama
+    </Link>
+  </span>
+  
+  <span className='flex lg:flex-row  flex-col justify-center text-center lg:mx-0  text-yellow-300 hover:text-white px-2
+         rounded-3xl border-2  bg-gradient-to-tr
+         hover:bg-gradient-to-bl
+          from-yellow-500 to-blue-500 lg:opacity-100 
+           transition-all delay-200
+           duration-700 ease-in-out
+          text-sm md:text-xl 
+             lg:text-xl'>
     <Link onClick={navbarflex} href="/blog">Blog
     </Link>
   </span>
