@@ -1,4 +1,3 @@
-// This component represents the index page for the site. You
 // can read more about Pages in the Next.js docs at:
 // https://nextjs.org/docs/basic-features/pages
 
@@ -7,8 +6,8 @@
 import Link from 'next/link'
 import { useAuth } from '@contexts/auth';
 
-import { getPosts } from '@lib/firebase';
-import { Layout } from '@components';
+import { getHome } from '@lib/firebase';
+
 import Image from 'next/image';
 import Main from 'components/main/feature';
 
@@ -30,7 +29,7 @@ const getFormattedDate = (milliseconds) => {
   // https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
   
 export async function getServerSideProps() {
-    const posts = await getPosts();
+    const posts = await getHome();
     
     return {
       props: {
@@ -45,19 +44,19 @@ export async function getServerSideProps() {
    return (
 
     <>
- 
+{/*  
                <Main
              banner_Logo="/feature.png"
-             />
+             /> */}
              <br />
              
       <div className=' w-full  bg-slate-500'>
 {/* <Layout/>     */}
       <h1 className=' hover:text-white to-gray-600 from-gray-200 bg-gradient-to-br text-2xl text-black font-serif font-bold text-center p-20 transition-all duration-500'>Blog Posts</h1>
-      <div className='relative flex overflow-scroll'>
+      <div className='flex overflow-scroll'>
 
       {posts.map((post) => (
-        <article key={post.slug} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-blue-400 rounded-xl  transition-all duration-500 hover:bg-purple-500 text-white">
+        <article key={post.id} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-blue-400 rounded-xl  transition-all duration-500 hover:bg-purple-500 text-white">
           <Image layout="responsive" width={400} height={300} src={post.coverImage} alt={post.coverImageAlt} />
           <div className='transition-all duration-500 font-serif'>
             
@@ -66,7 +65,8 @@ export async function getServerSideProps() {
             <div className=' flex justify-between '>
             
  <a className=' px-2 bg-slate-400 hover:shadow-md shadow-black text-black transition-all duration-300 underline rounded-lg hover:bg-white shadow-xl'>
-  <Link href={`/post/${post.slug}`}>{post.title}</Link>
+  <Link href={`/usama/body/${post.slug}`}>{post.title}</Link>
+  <Link href={`/usama/edit/${post.slug}`}>Edit</Link>
  </a>
         </div>
 

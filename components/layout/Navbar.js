@@ -33,7 +33,7 @@ export default function Nav(props) {
   return (
     <>
     
-          <div className=" w-full h-10 px-2 flex fixed flex-row  hover:bg-gray-600 duration-500 bg-gray-300 items-center  justify-between  hover:cursor-pointer  z-50 lg:relative  bg-opacity-50 lg:h-auto hover:text-white h-16 ">
+          <div className=" w-full md:h-16 h-10 px-2 flex fixed flex-row  hover:bg-gray-600 duration-500 bg-gray-300 items-center  justify-between  hover:cursor-pointer  z-50 lg:relative  bg-opacity-50 lg:h-auto hover:text-white h-16 ">
     <Link className=' font-serif  text-xl' href="/">{props.link1}</Link>
     
             
@@ -59,6 +59,17 @@ export default function Nav(props) {
           text-sm md:text-xl 
              lg:text-xl'>
     <Link onClick={navbarflex} href="/blog">Blog
+    </Link>
+  </span>
+  <span className='flex lg:flex-row  flex-col justify-center text-center lg:mx-0  text-yellow-300 hover:text-white px-2
+         rounded-3xl border-2  bg-gradient-to-tr
+         hover:bg-gradient-to-bl
+          from-yellow-500 to-blue-500 lg:opacity-100 
+           transition-all delay-200
+           duration-700 ease-in-out
+          text-sm md:text-xl 
+             lg:text-xl'>
+    <Link onClick={navbarflex} href="/usama">Usama
     </Link>
   </span>
 
