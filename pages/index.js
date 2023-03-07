@@ -58,7 +58,7 @@ export async function getServerSideProps() {
 
       {posts.map((post) => (
         <article key={post.slug} className=" p-4 hover:shadow-lg shadow-2xl  m-4 bg-blue-400 rounded-xl  transition-all duration-500 hover:bg-purple-500 text-white">
-          <Image layout="responsive" width={400} height={300} src={post.coverImage} alt={post.coverImageAlt} />
+          <img src={post.coverImage} alt={post.coverImageAlt} />
           <div className='transition-all duration-500 font-serif'>
             
         

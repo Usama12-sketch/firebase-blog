@@ -70,7 +70,7 @@ banner_Logo="/React-icon.svg.png"
           </div>
         </div>
           <div id='move' className={` transition-all duration-1000   right-0 ${move}`}>
-        <Image className='' src={props.banner_Logo} layout='fill' objectFit='contain'></Image>
+        {/* <Image src={props.banner_Logo} layout='fill' objectFit='contain'></Image> */}
 
           </div>
         
